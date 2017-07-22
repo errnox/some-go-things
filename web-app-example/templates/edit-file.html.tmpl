@@ -1,0 +1,129 @@
+{{define "head"}}
+{{end}}
+
+{{define "body"}}
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-12">
+        <h3>File</h3>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col col-md-3">
+      <div class="list-group">
+        {{range $file := .Files}}
+        {{if ne $file.ID $.ID}}
+        <a href="{{url `edit-file` `id` $file.ID}}" class="list-group-item"><span class="fa fa-file-o"></span> {{$file.Name}}</a>
+        {{else}}
+        <span class="list-group-item"><b><span class="fa fa-angle-right"></span> &nbsp;{{$file.Name}}</b></span>
+        {{end}}
+        {{end}}
+	<div class="panel-body"></div>
+	{{if .ID}}
+	{{else}}
+	<div class="js-hidable js-hidableAutoFocus">
+	  <button type="button" class="btn btn-block btn-success js-hidableToggle">New file</button>
+	  <div class="js-hidableBody">
+	    <form method="post" action="{{url `edit-file-create`}}?create=true">
+	      <div class="form-group">
+		<input type="text" name="name" placeholder="File name" class="form-control"/>
+	      </div>
+	      <button type="submit" class="btn btn-success js-hidableClose">Create file</button>
+	      <button type="button" class="btn btn-default js-hidableClose">Cancel</button>
+	    </form>
+	  </div>
+	</div>
+	{{end}}
+      </div>
+    </div>
+
+    <div class="col col-md-9">
+      {{if .ID}}
+      <form method="post" action="{{url `edit-file` `id` .ID}}">
+        <input type="hidden" name="id" value="{{.ID}}" />
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <b class="panel-title"><span class="fa fa-file-o"></span> {{.Name}}</b>
+            <small class="text-muted">&nbsp;&nbsp;{{.ID}}</small>
+
+            <div class="pull-right">
+              <div class="btn-group">
+                <button type="submit" class="btn btn-sm btn-primary"><span class="fa fa-check"></span> Save</button>
+		<a href="{{url `edit-files`}}" class="btn btn-sm btn-default">Cancel</a>
+              </div>
+              <div class="btn-group">
+                <span class="text-muted">&nbsp;|&nbsp;</span>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#js-deleteFileModal"><span class="text-danger">Delete</span></button>
+              </div>
+            </div>
+
+          </div>
+          <div class="panel-body">
+	    <p class="text-right">
+	      <small>
+		Lines:
+		<b>{{.Lines}}</b>
+		&nbsp;
+		&nbsp;
+		Chars:
+		<b>{{.Chars}}</b>
+	      </small>
+	    </p>
+            <div class="form-group">
+              <pre><textarea rows="17" name="content" class="form-control">{{.Content}}</textarea></pre>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+    </form>
+
+    <div id="js-deleteFileModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form method="post" action="{{url `edit-file-delete`}}?delete=true">
+	      <input type="hidden" name="id" value="{{.ID}}" />
+              <div class="text-center">
+		<div class="panel-body"></div>
+		<p class="text-danger">Do you really want to delete this file?</p>
+		<div class="panel-body"></div>
+		<div class="row">
+                  <div class="col col-md-4 col-md-offset-2">
+                    <button type="submit" class="btn btn-block btn-default" data-dismiss="modal">No</button>
+                  </div>
+                  <div class="col col-md-4">
+                    <button type="submit" class="btn btn-block btn-danger">Yes</button>
+                  </div>
+		</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{else}}
+    <div class="jumbotron">
+      <div class="text-center">
+        <p><em class="text-muted">Please select a file.</em></p>
+      </div>
+    </div>
+    {{end}}
+  </div>
+
+</div>
+{{end}}
+
+{{define "foot"}}
+{{end}}

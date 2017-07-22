@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/stylesheets/app.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/stylesheets/font-awesome.min.css" type="text/css" />
+    {{template "head" .}}
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbarMain">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            <a class="text-muted" href="{{linkTo `home`}}"><span class="fa fa-fw fa-file-o"></span>Website</a>
+	  </div>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="main-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="{{activeClass `customers` `u-bold`}}"><a href="{{linkTo `customers`}}">Customers</a></li>
+            <li class="{{activeClass `headers` `u-bold`}}"><a href="{{url `headers`}}">Headers</a></li>
+            <li class="{{activeClass `edit-files` `u-bold`}}"><a href="{{url `edit-files`}}">Files</a></li>
+            <li class="{{activeClass `assets` `u-bold`}}"><a href="{{linkTo `assets`}}">Assets</a></li>
+            <li class="{{activeClass `404` `u-bold`}}"><a href="{{linkTo `404`}}">404</a></li>
+            <li class="{{activeClass `Redirect` `u-bold`}}"><a href="{{linkTo `redirect`}}">Redirect</a></li>
+            <li class="{{activeClass `json` `u-bold`}}"><a href="{{url `json`}}">JSON</a></li>
+	    <li class="visible-lg"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li><a class="hidden-xs" href="{{linkTo `exit`}}" title="Quit" data-toggle="tooltip" data-placement="bottom"><span class="fa fa-fw fa-power-off"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+	  <div class="visible-xs pull-right"><a class="text-muted" href="{{linkTo `exit`}}"><span class="fa fa-fw fa-power-off"></span>Quit</a></div>
+	</div>
+      </div>
+    </div>
+
+    {{if flash}}
+    <div class="alert alert-info text-center" role="alert">
+      <div class="container">
+	<div class="row">
+          <div class="col col-md-12">
+	    {{flash}}
+	    <div class="pull-right">
+	      <button type="button" class="close" data-dismiss="alert"><span class="">&times;</span></button>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+    {{end}}
+
+    <div class="mainBody">
+      {{template "body" .}}
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+	  <div class="panel-body"></div>
+	  <div class="panel-body"></div>
+	  <div class="panel-body"></div>
+          <hr />
+          <div class="text-center">
+            <a href="/"><span class="fa fa-file text-muted"></span></a>
+            <div class="panel-body"></div>
+            <div class="panel-body"></div>
+            <div class="panel-body"></div>
+            <div class="panel-body"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="/assets/javascripts/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/javascripts/app.js"></script>
+    {{template "foot" .}}
+  </body>
+</html>

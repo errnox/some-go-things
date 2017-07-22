@@ -1,0 +1,11 @@
+BASH(1)                  General Commands Manual                  BASH(1)
+
+
+
+NAME
+       bash - GNU Bourne-Again SHell
+
+SYNOPSIS
+       bash [options] [command_string | file]
+
+# ------------------------------------------------------------------------

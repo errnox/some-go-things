@@ -1,0 +1,289 @@
+.container {
+  max-width: 980px;
+}
+
+.navbarMain {
+  background-color: #FCFCFC;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.form-control {
+  background-color: #FCFCFF;
+  box-shadow: none;
+}
+
+.form-control:active,
+.form-control:focus {
+  box-shadow: 0 0 0 2px #66AFE9;
+  border-radius: 3px;
+  -webkit-transition: box-shadow 160ms;
+  -moz-transition: box-shadow 160ms;
+  -o-transition: box-shadow 160ms;
+  transition: box-shadow 40ms;
+  background-color: #F9F9FF;
+}
+
+a,
+.btn-link {
+  color: #0077CC;
+
+}
+
+a:hover,
+.btn-link:hover {
+  color: #1188FF;
+}
+
+.btn-default,
+.btn-primary,
+.btn-secondary,
+.btn-info,
+.btn-success,
+.btn-warning,
+.btn-danger {
+  border-radius: 3px;
+  box-shadow: inset 0 -35px 35px -40px rgba(0, 0, 0, 0.2),
+              inset 0 1px 1px -1px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary,
+.btn-default {
+  color: #343434;
+}
+
+.btn {
+  font-weight: bold;
+}
+
+.btn-default {
+  background-color: #FCFCFC;
+  text-shadow: none;
+}
+
+.btn-primary {
+  box-shadow: inset 0 -35px 35px -40px rgba(0, 0, 0, 0.8),
+              inset 0 1px 1px -1px rgba(255, 255, 255, 0.8);
+  background-color: #5587D7;
+}
+
+.btn-primary:hover {
+  background-color: #3365B5;
+}
+
+.btn-secondary {
+  background-color: #CCC9C5;
+}
+
+.btn-secondary:hover {
+  background-color: #AAA7A2;
+}
+
+.btn-info {
+  background-color: #66BDFF;
+}
+
+.btn-success {
+  background-color: #16DA16;
+}
+
+.btn-success:hover {
+  background-color: #3AB63A;
+}
+
+.btn-warning {
+  background-color: #FEB93F;
+}
+
+.btn-danger {
+  background-color: #FC635F;
+}
+
+.btn-primary,
+.btn-info,
+.btn-success,
+.btn-warning,
+.btn-danger {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn-default:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-info:focus,
+.btn-success:focus,
+.btn-warning:focus,
+.btn-danger:focus {
+  border-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 2px #66BDFF;
+}
+
+.btn-default:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-info:active,
+.btn-success:active,
+.btn-warning:active,
+.btn-danger:active {
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 8px 5px -5px rgba(0, 0, 0, 0.3);
+  border-color: #007EE5;
+}
+
+.btn:active,
+.btn:focus {
+  outline: 0 !important;
+}
+
+.btn-light {
+  background-color: #FFFFFF;
+  color: #007EE5;
+  border: 1px solid #007EE5;
+}
+
+.btn-light:hover {
+  background-color: #F0F8FF;
+  color: #007EE5;
+}
+
+.btn-light:focus {
+  color: #007EE5;
+  background-color: #F0F7FD;
+}
+
+.btn-light:active {
+  box-shadow: none;
+  background-color: #E0E6EC;
+  background-color: #CAE4FB;
+  color: #007EE5;
+}
+
+.well,
+pre {
+  border-color: rgba(0, 0, 0, 0.0);
+}
+
+.well {
+  background-color: #ECECEC;
+}
+
+.well.well-info {
+  background-color: #CAE4FB;
+}
+
+.alert.alert-warning {
+  background-color: #FFF8AF;
+  color: #888458;
+}
+
+.nav.nav.nav-tabs li a {
+  color: #8B8B8B;
+}
+
+.nav.nav.nav-tabs a:hover {
+  color: #333333;
+}
+
+.nav.nav-tabs .active a,
+.nav.nav-tabs .active a:hover,
+.nav.nav-tabs .active a:active,
+.nav.nav-tabs .active a:focus {
+  border: none;
+  border-radius: 0;
+  border-bottom: 3px solid #777777;
+  color: #333333 !important;
+}
+
+.nav.nav-tabs a,
+.nav.nav-tabs a:hover,
+.nav.nav-tabs a:focus,
+.nav.nav-tabs a:active {
+  background: none;
+  border: none;
+}
+
+.modal-content {
+  box-shadow: none;
+}
+
+.text-gray {
+  color: #EAEAEA;
+}
+
+.text-blue {
+  color: #66AFE9;
+}
+
+/* Utilities */
+
+.u-bold {
+  font-weight: bold;
+}
+
+.u-outlineBox {
+  box-shadow: 0 0 0 5px #F3F3F3;
+}
+
+.u-textNormal {
+  font-weight: normal;
+}
+
+.u-noBackground {
+  background: none;
+}
+
+/* Experiments */
+
+.u-squareBlock {
+  width: 34px;
+  height: 34px;
+}
+
+.u-fullWidth {
+  width: 100%;
+}
+
+.checkboxLabel:hover {
+  background-color: #F3F3F3;
+  box-shadow: 0 0 0 3px #F3F3F3;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.checkboxLabel:active {
+  background-color: #EAEAEA;
+  box-shadow: 0 0 0 3px #EAEAEA;
+}
+
+.checkboxLabel {
+  font-weight: normal;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+/* buttonGroup */
+
+.buttonGroup .btn,
+.buttonGroup .btn:hover,
+.buttonGroup .btn:active,
+.buttonGroup .btn:focus {
+  background-color: #AEAEAE;
+  box-shadow: none;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-radius: 0;
+}
+
+.buttonGroup .btn:hover,
+.buttonGroup .btn:active,
+.buttonGroup .btn:focus {
+  background-color: #BFBFBF;
+}
+
+.buttonGroup .btn:active {
+  background-color: #8A8A8A;
+  color: #FFFFFF;
+}

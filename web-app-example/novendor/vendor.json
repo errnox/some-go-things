@@ -1,0 +1,30 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "iIUYZyoanCQQTUaWsu8b+iOSPt4=",
+			"path": "github.com/gorilla/context",
+			"revision": "215affda49addc4c8ef7e2534915df2c8c35c6cd",
+			"revisionTime": "2014-12-17T16:02:51Z"
+		},
+		{
+			"checksumSHA1": "oxIMTV/z4A/zb7PxPhQROiAARSo=",
+			"path": "github.com/gorilla/mux",
+			"revision": "660d31f8602b95058fed6833debf113e85350868",
+			"revisionTime": "2015-04-22T20:14:49Z"
+		},
+		{
+			"checksumSHA1": "+tT8J7eYVY4gqPxF/3D+ZE76Koo=",
+			"path": "github.com/mattn/go-sqlite3",
+			"revision": "b808f01f660667b1510acf216aa2b9fe7f555ddb",
+			"revisionTime": "2015-09-20T16:07:23Z"
+		},
+		{
+			"checksumSHA1": "KKI1ZTIM+uuGF6l2L7MBuaA/Mm8=",
+			"path": "github.com/<username>/simplegostringtools",
+			"revision": ""
+		}
+	],
+	"rootPath": "github.com/<username>/misc"
+}

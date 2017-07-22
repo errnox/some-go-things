@@ -1,0 +1,168 @@
+{{define "head"}}
+<title>Customers</title>
+{{end}}
+
+{{define "body"}}
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-12">
+        <h3>
+          Customers <small class="text-muted">({{len .Customers}})</small>
+          <!-- <div class="pull-right"> -->
+          <!--   <form method="post" action="{{url `customers-search`}}"> -->
+          <!--     <div class="input-group input-group-sm"> -->
+          <!--       <input type="text" name="q" placeholder="Search customers" class="form-control"/> -->
+          <!--       <div class="input-group-btn"> -->
+          <!--         <button type="submit" class="btn btn-default"><span class="fa fa-search"></span></button> -->
+          <!--       </div> -->
+          <!--     </div> -->
+          <!--   </form> -->
+          <!-- </div> -->
+        </h3>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col col-md-4">
+      <form method="post" action="/customer?partial=true" class="well well-info">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="firstName" value="" placeholder="John" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="lastName" value="" placeholder="Doe" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <div class="panel-body"></div>
+          <button type="submit" class="btn btn-primary pull-right">Create</button>
+        </div>
+        <div class="panel-body"></div>
+      </form>
+    </div>
+
+    <div class="col col-md-8">
+
+      <!-- {{if $query := .CurrentSearchQuery}} -->
+      <!-- <div class="panel panel-default"> -->
+      <!-- 	<div class="panel-body"> -->
+      <!-- 	  <span>Search results for "<b>{{.CurrentSearchQuery}}</b>" ({{len .Customers}})</span> -->
+      <!-- 	  <a href="{{url `customers`}}" class="btn btn-xs btn-link pull-right">Show all</a> -->
+      <!-- 	</div> -->
+      <!-- </div> -->
+      <!-- {{end}} -->
+
+      {{if .Customers}}
+
+      <div class="panel panel-default">
+
+	<div class="panel-heading">
+	  <form method="post" action="{{url `customers-search`}}">
+	    <div class="input-group">
+	      <input type="text" name="q" placeholder="Search customers" class="form-control"/>
+	      <div class="input-group-btn">
+		<button type="submit" class="btn btn-default"><span class="fa fa-search"></span></button>
+	      </div>
+	    </div>
+	  </form>
+	</div>
+
+        {{if $query := .CurrentSearchQuery}}
+        <div class="panel-body">
+          <span>Search results for "<b>{{.CurrentSearchQuery}}</b>" ({{len .Customers}})</span>
+          <a href="{{url `customers`}}" class="btn btn-xs btn-link pull-right">Show all</a>
+        </div>
+        {{end}}
+
+        <div class="list-group">
+          {{range $i, $customer:= .Customers}}
+          <a href="{{url `customer` `id` $customer.CustomerId}}" class="list-group-item">
+            <div class="row">
+              <div class="col col-md-1 text-center">
+                <span class="fa fa-border fa-user bg-info text-primary"></span>
+                <p class="text-info"><small>{{add $i 1}}</small></p>
+              </div>
+              <div class="col col-md-2">
+                <small class="text-muted">First Name</small>
+                <p>{{or $customer.FirstName `-`}}</p>
+              </div>
+              <div class="col col-md-3">
+                <small class="text-muted">Last Name</small>
+                <p>{{or $customer.LastName `-`}}</p>
+              </div>
+              <div class="col col-md-3">
+                <small class="text-muted">Company</small>
+                <p>{{or $customer.Company `-`}}</p>
+              </div>
+              <div class="col col-md-2">
+                <small class="text-muted">Data</small>
+                <p>
+                  {{if le $customer.NumData 20}}
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  {{else if le $customer.NumData 40}}
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  {{else if le $customer.NumData 60}}
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  {{else if le $customer.NumData 80}}
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-gray"></span>
+                  {{else if le $customer.NumData 100}}
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  <span class="fa fa-minus text-blue"></span>
+                  {{end}}
+                </p>
+		<!-- <div class="progress"> -->
+		<!--   <div class="progress-bar" role="progressbar" aria-valuenow="{{$customer.NumData}}" aria-valuemin="0" aria-valuemax="12" style="width: {{$customer.NumData}}%;">{{$customer.NumData}}%</div>		   -->
+		<!-- </div> -->
+	      </div>
+              <div class="col col-md-1 pull-right">
+                <form method="post" action="/customer?delete=true">
+                  <input type="hidden" name="id" value="{{$customer.CustomerId}}" />
+                  <button type="submit" class="btn btn-xs btn-default" title="Delete"><span class="fa fa-close text-danger"></span></button>
+                </form>
+              </div>
+            </div>
+
+          </a>
+          {{end}}
+        </div>
+      </div>
+
+      {{else}}
+
+      <div class="jumbotron text-center">
+	<em>No search results</em>
+      </div>
+
+      {{end}}
+
+    </div>
+  </div>
+</div>
+{{end}}
+
+{{define "foot"}}
+{{end}}
